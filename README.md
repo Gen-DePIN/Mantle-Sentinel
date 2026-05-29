@@ -1,36 +1,41 @@
 # 🛡️ Mantle Sentinel
 
+🏆 **Built for The Turing Test 2026 Hackathon**  
+🎬 **[Watch our 2-Minute Pitch & Demo Video Here]** *(Вставьте сюда ссылку на YouTube/Loom, когда запишете демо)*
+
 > **Autonomous AI-Driven On-Chain Anomaly Detection & Network Guardian for the Mantle Ecosystem.**
 
 Mantle Sentinel is an intelligent network monitoring agent engineered to safeguard smart contracts, protocols, and decentralized infrastructure running on the Mantle Network. By leveraging real-time data streaming from Mantle RPC nodes, the Sentinel analyzes transaction flows, sequencer latency, and gas market fluctuations to isolate anomalies and mitigate exploits before they escalate.
 
 ---
 
+## 🌍 Impact on the Mantle Ecosystem
+Security is the foundation of TVL (Total Value Locked) growth. Mantle Sentinel provides:
+* **For DeFi Protocols:** Proactive warnings against flash-loan attacks and liquidity drains.
+* **For Infrastructure Providers:** Real-time alerts on sequencer delays or RPC desynchronization.
+* **For the Ecosystem:** A safer environment that attracts institutional capital by shifting security from *reactive* (post-exploit analysis) to *proactive* (real-time prevention).
+
+---
+
 ## 📖 Table of Contents
-1. [Overview](#-overview)
-2. [System Architecture](#-system-architecture)
-3. [Key Features](#-key-features)
-4. [Repository Structure](#-repository-structure)
-5. [Quick Start & Installation](#-quick-start--installation)
-6. [Proof of Concept (PoC) Logic](#-proof-of-concept-poc-logic)
-7. [Future Roadmap](#-future-roadmap)
-8. [Contact & Community](#-contact--community)
+1. [System Architecture & AI Stack](#-system-architecture--ai-stack)
+2. [Key Features](#-key-features)
+3. [Repository Structure](#-repository-structure)
+4. [Quick Start & Installation](#-quick-start--installation)
+5. [Proof of Concept (PoC) Logic](#-proof-of-concept-poc-logic)
+6. [Future Roadmap](#-future-roadmap)
 
 ---
 
-## 📖 Overview
-In highly scalable Layer-2 ecosystems like Mantle, real-time security telemetry is critical. Traditional block explorers and retrospective analytics notify developers *after* an exploit or network failure has already occurred. 
+## ⚙️ System Architecture & AI Stack
+The agent is built using a modular pipeline design, integrating standard Web3 tooling with Machine Learning primitives:
 
-**Mantle Sentinel** shifts security from reactive to proactive. Operating as a continuous background daemon, it tracks state updates block-by-block, mapping metrics against historical baseline models to identify irregular network signatures (e.g., sudden gas spikes from DDoS spam or massive flash-loan capital outflows).
-
----
-
-## ⚙️ System Architecture
-The agent is built using a modular pipeline design:
-1. **Data Ingestion Layer:** Connects directly to the Mantle JSON-RPC provider to listen for newly minted blocks and pending state transitions.
+1. **Data Ingestion Layer (Web3.py):** Connects directly to the Mantle JSON-RPC provider to listen for newly minted blocks and pending state transitions.
 2. **Feature Extraction:** Extracts core performance and financial primitives: gas price variance, block time intervals, and contract interaction densities.
-3. **Anomaly Isolation Model:** Evaluates extracted primitives using dynamic thresholding and statistical deviation models representing automated AI-driven logic.
-4. **Alert Routing Gateway:** Formulates actionable JSON-payload security logs and dispatches instant webhooks to infrastructure maintainers.
+3. **AI Anomaly Isolation Model:** 
+   * Utilizes Unsupervised Machine Learning (e.g., Isolation Forests / dynamic thresholding via `scikit-learn`) to establish a baseline of "normal" network behavior.
+   * Continuously evaluates extracted primitives against this model to detect statistical deviations representing automated spam vectors or exploit signatures.
+4. **Alert Routing Gateway:** Formulates actionable JSON-payload security logs and dispatches instant webhooks (Discord/Telegram) to infrastructure maintainers.
 
 ---
 
@@ -44,5 +49,6 @@ The agent is built using a modular pipeline design:
 ## 🛠️ Repository Structure
 ```bash
 ├── main.py          # Core Python application containing the AI Agent logic and RPC loop
+├── requirements.txt # Dependencies (Web3.py, scikit-learn, etc.)
 ├── README.md        # Comprehensive technical documentation and architecture overview
 └── .env.example     # Configuration blueprint for network endpoints and private credentials
