@@ -1,7 +1,8 @@
 # 🛡️ Mantle Sentinel
 
-🏆 **Built for The Turing Test 2026 Hackathon**  
-🎬 **[Watch our 2-Minute Pitch & Demo Video Here]** *(Вставьте сюда ссылку на YouTube/Loom, когда запишете демо)*
+🏆 **Built for The Turing Test 2026 Hackathon** <p align="center">
+  <video src="sentinel-demo.mp4" autoplay loop muted playsinline width="100%"></video>
+</p>
 
 > **Autonomous AI-Driven On-Chain Anomaly Detection & Network Guardian for the Mantle Ecosystem.**
 
@@ -32,8 +33,7 @@ The agent is built using a modular pipeline design, integrating standard Web3 to
 
 1. **Data Ingestion Layer (Web3.py):** Connects directly to the Mantle JSON-RPC provider to listen for newly minted blocks and pending state transitions.
 2. **Feature Extraction:** Extracts core performance and financial primitives: gas price variance, block time intervals, and contract interaction densities.
-3. **AI Anomaly Isolation Model:** 
-   * Utilizes Unsupervised Machine Learning (e.g., Isolation Forests / dynamic thresholding via `scikit-learn`) to establish a baseline of "normal" network behavior.
+3. **AI Anomaly Isolation Model:** * Utilizes Unsupervised Machine Learning (e.g., Isolation Forests / dynamic thresholding via `scikit-learn`) to establish a baseline of "normal" network behavior.
    * Continuously evaluates extracted primitives against this model to detect statistical deviations representing automated spam vectors or exploit signatures.
 4. **Alert Routing Gateway:** Formulates actionable JSON-payload security logs and dispatches instant webhooks (Discord/Telegram) to infrastructure maintainers.
 
@@ -48,7 +48,9 @@ The agent is built using a modular pipeline design, integrating standard Web3 to
 
 ## 🛠️ Repository Structure
 ```bash
+├── app.py           # FastAPI server for frontend integration and mock data endpoints
 ├── main.py          # Core Python application containing the AI Agent logic and RPC loop
-├── requirements.txt # Dependencies (Web3.py, scikit-learn, etc.)
+├── sentinel-demo.mp4# Cinematic demo visualization of the AI Agent threat isolation
+├── requirements.txt # Dependencies (Web3.py, FastAPI, scikit-learn, etc.)
 ├── README.md        # Comprehensive technical documentation and architecture overview
 └── .env.example     # Configuration blueprint for network endpoints and private credentials
